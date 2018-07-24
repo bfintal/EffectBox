@@ -1,0 +1,35 @@
+{
+  "name": "effectbox",
+  "version": "0.1.0",
+  "description": "A collection of ready-to-use & lean frontend effects & tools",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "parcel build src/index.js --no-minify --global effectBox --out-file effectbox.js && parcel build src/index.js --global effectBox --out-file effectbox.min.js",
+    "watch": "parcel src/index.js --global effectBox --out-file effectbox.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfintal/EffectBox.git"
+  },
+  "keywords": [
+    "effect",
+    "frontend",
+    "utilities"
+  ],
+  "author": "Benjamin Intal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bfintal/EffectBox/issues"
+  },
+  "homepage": "https://github.com/bfintal/EffectBox#readme",
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.9.4",
+    "parcel-plugin-bundle-visualiser": "^1.1.2"
+  },
+  "dependencies": {
+    "domready": "^1.0.8"
+  }
+}
