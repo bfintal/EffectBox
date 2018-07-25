@@ -7,10 +7,14 @@ export const mapOptions = ( el, defaultOptions ) => {
         }
         return dataOptions
     }, {} )
-    return {
-        ...defaultOptions,
-        ...dataOptions,
-    }
+    return Object.assign( defaultOptions, dataOptions )
 }
 
 export const camelCaseToDash = s => s.replace( /([a-zA-Z])(?=[A-Z])/g, '$1-' ).toLowerCase()
+
+export const formSettings = ( el, defaultOptions, options ) => {
+    return Object.assign( 
+        mapOptions( el, defaults ), 
+        options 
+    )
+}

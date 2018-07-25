@@ -4,10 +4,11 @@ export const elemsToWatch = []
 
 const start = ( el, opts = {} ) => {
     stop( el )
-    const options = {
-        callback: () => {},
-        ...opts,
-    }
+    const options = Object.assign( 
+        { callback: () => {} },
+        opts
+    )
+
     elemsToWatch.push( { el, options, } )
     if ( isInView( el, options ) ) {
         options.callback()

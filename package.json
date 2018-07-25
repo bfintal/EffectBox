@@ -1,6 +1,6 @@
 {
   "name": "effectbox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A collection of ready-to-use & lean frontend effects & tools",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/bfintal/EffectBox#readme",
   "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "parcel-bundler": "^1.9.4",
     "parcel-plugin-bundle-visualiser": "^1.1.2"

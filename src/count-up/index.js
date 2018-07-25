@@ -1,4 +1,4 @@
-import { mapOptions } from '../util'
+import { formSettings } from '../util'
 import scrollReveal from '../scroll-reveal'
 
 const start = ( el, options = {} ) => {
@@ -9,11 +9,8 @@ const start = ( el, options = {} ) => {
         delay: 16,
     }
 
-    const settings = {
-        ...mapOptions( el, defaults ),
-        ...options,
-    }
-
+    const settings = formSettings( el, defaults, options )
+    
     stop( el );
 
     // If no number, don't do anything.

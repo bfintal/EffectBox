@@ -109,9 +109,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var mapOptions = exports.mapOptions = function mapOptions(el, defaultOptions) {
     var dataOptions = Object.keys(defaultOptions).reduce(function (dataOptions, optionName) {
         var attr = 'data-' + camelCaseToDash(optionName);
@@ -121,11 +118,15 @@ var mapOptions = exports.mapOptions = function mapOptions(el, defaultOptions) {
         }
         return dataOptions;
     }, {});
-    return _extends({}, defaultOptions, dataOptions);
+    return Object.assign(defaultOptions, dataOptions);
 };
 
 var camelCaseToDash = exports.camelCaseToDash = function camelCaseToDash(s) {
     return s.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
+};
+
+var formSettings = exports.formSettings = function formSettings(el, defaultOptions, options) {
+    return Object.assign(mapOptions(el, defaults), options);
 };
 },{}],"NDqt":[function(require,module,exports) {
 var define;
@@ -168,8 +169,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.scrollHandler = exports.isInView = exports.elemsToWatch = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _domready = require('domready');
 
 var _domready2 = _interopRequireDefault(_domready);
@@ -182,9 +181,8 @@ var start = function start(el) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     stop(el);
-    var options = _extends({
-        callback: function callback() {}
-    }, opts);
+    var options = Object.assign({ callback: function callback() {} }, opts);
+
     elemsToWatch.push({ el: el, options: options });
     if (isInView(el, options)) {
         options.callback();
@@ -257,8 +255,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.applyNumFormat = exports.detectNumFormat = exports.generateNumbersTo = exports.isCountable = exports.splitNumbers = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _util = require('../util');
 
 var _scrollReveal = require('../scroll-reveal');
@@ -277,7 +273,7 @@ var start = function start(el) {
         delay: 16
     };
 
-    var settings = _extends({}, (0, _util.mapOptions)(el, defaults), options);
+    var settings = (0, _util.formSettings)(el, defaults, options);
 
     stop(el);
 
