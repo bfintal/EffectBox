@@ -1,4 +1,4 @@
-# EffectBox.js - A collection of ready-to-use & lean frontend effects & tools
+# EffectBox - A collection of ready-to-use & lean frontend effects & tools
 
 ## Problem
 
@@ -24,11 +24,11 @@ You can import each effect/utility individually as you need them in your project
 
 #### Effects
 
-[x] Number Count-Up
+- [x] Number Count-Up
 
 #### Utilities
 
-[x] Scroll Reveal - Trigger a callback when an element becomes visible
+- [x] Scroll Reveal - Trigger a callback when an element becomes visible
 
 > Create an issue or PR and suggest frontend effects & utilities!
 
