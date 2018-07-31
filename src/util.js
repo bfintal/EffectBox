@@ -14,7 +14,7 @@ export const camelCaseToDash = s => s.replace( /([a-zA-Z])(?=[A-Z])/g, '$1-' ).t
 
 export const formSettings = ( el, defaultOptions, options ) => {
     return Object.assign( 
-        mapOptions( el, defaults ), 
+        mapOptions( el, defaultOptions ), 
         options 
     )
 }
