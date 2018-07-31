@@ -25,11 +25,11 @@ You can import each effect/utility individually as you need them in your project
 #### Effects
 
 - [x] [Number Count-Up](#countup)
-- [x] [Video Popup](#videoPopup)
+- [x] [Video Popup](#videopopup)
 
 #### Utilities
 
-- [x] [Scroll Reveal](#scrollReveal) - Trigger a callback when an element becomes visible
+- [x] [Scroll Reveal](#scrollreveal) - Trigger a callback when an element becomes visible
 
 > Create an issue or PR and suggest frontend effects & utilities!
 
