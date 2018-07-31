@@ -1,10 +1,12 @@
 {
   "name": "effectbox",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A collection of ready-to-use & lean frontend effects & tools",
   "main": "src/index.js",
   "scripts": {
-    "build": "parcel build src/index.js --no-minify --global effectBox --out-file effectbox.js && parcel build src/index.js --global effectBox --out-file effectbox.min.js",
+    "build": "npm run css && npm run js",
+    "css": "parcel build src/index.scss --no-minify --out-file effectbox.css && parcel build src/index.scss --out-file effectbox.min.css",
+    "js": "parcel build src/index.js --no-minify --global effectBox --out-file effectbox.js && parcel build src/index.js --global effectBox --out-file effectbox.min.js",
     "watch": "parcel src/index.js --global effectBox --out-file effectbox.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,10 +27,12 @@
   "homepage": "https://github.com/bfintal/EffectBox#readme",
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
+    "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.4",
     "parcel-plugin-bundle-visualiser": "^1.1.2"
   },
   "dependencies": {
+    "bigpicture": "^1.3.2",
     "domready": "^1.0.8"
   }
 }

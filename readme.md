@@ -24,11 +24,12 @@ You can import each effect/utility individually as you need them in your project
 
 #### Effects
 
-- [x] Number Count-Up
+- [x] [Number Count-Up](#countup)
+- [x] [Video Popup](#videoPopup)
 
 #### Utilities
 
-- [x] Scroll Reveal - Trigger a callback when an element becomes visible
+- [x] [Scroll Reveal](#scrollReveal) - Trigger a callback when an element becomes visible
 
 > Create an issue or PR and suggest frontend effects & utilities!
 
@@ -49,6 +50,8 @@ import { countUp } from 'effectbox'
 import { scrollReveal } from 'effectbox'
 ```
 
+Note that some effects will need some essential styles. For those, refer to the `index.scss` file in the `src` folder of the effect, or use the `effectbox.css` in the dist folder.
+
 ## Installation via &lt;script> tag
 
 Or you can include the whole pre-built library via `<script>`:
@@ -59,7 +62,13 @@ Or you can include the whole pre-built library via `<script>`:
 
 This exposes the global/window variable `effectBox` that contains all the effects and libraries - for example `effectBox.countUp`
 
-Not so advisable.
+Also include the css:
+
+```html
+<link rel="stylesheet" media="all" href="//path/to/effectbox.min.css"/>
+```
+
+Via Style tag is not so advisable.
 
 ## Usage
 
@@ -141,6 +150,60 @@ The text in the middle can be a string containing more than one number and can c
 **JS**
 ```js
 countUp.start( el )
+```
+
+## `videoPopup`
+
+Creates a video thumbnail that when clicked opens a fullscreen-like video inside a lightbox. Supports Vimeo, YouTube or MP4 videos and supports image or video thumbnails.
+
+This requires some essential styles.
+
+### Minimal HTML
+
+```html
+<div class="eb-video-popup"
+    data-video='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+    >
+    <div class="eb-video-preview" style="background-image: url('https://source.unsplash.com/random/800x600');"></div>
+    <div class="eb-video-wrapper">
+        <a href="#"></a>
+        <span class="eb-play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 320"><path d="M0 0v320l256-160L0 0z"/></svg>
+        </span>
+    </div>
+</div>
+```
+
+### Options
+
+| Option | Type | Default | Description |
+| - | - | - | - |
+| video | string | | The YouTube video ID, Vimeo video ID or MP4 video URL |
+
+### Example
+
+Video thumbnail
+
+**HTML**
+```html
+<div class="eb-video-popup"
+    data-video='mnSgHLBpOpw'
+    >
+    <video class="eb-video-preview" autoPlay loop muted>
+        <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+    <div class="eb-video-wrapper">
+        <a href="#"></a>
+        <span class="eb-play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 34 34"><path d="M17 34C7.6 34 0 26.4 0 17S7.6 0 17 0s17 7.6 17 17-7.6 17-17 17zm0-32C8.7 2 2 8.7 2 17s6.7 15 15 15 15-6.7 15-15S25.3 2 17 2z"/><path d="M12 25.7V8.3L27 17l-15 8.7zm2-14v10.5l9-5.3-9-5.2z"/></svg>
+        </span>
+    </div>
+</div>
+```
+
+**JS**
+```js
+videoPopup.start( el )
 ```
 
 ## `scrollReveal`
