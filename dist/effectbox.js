@@ -542,8 +542,7 @@ var global = arguments[3];
 		} else if (options.vidSrc) {
 			// if direct video link
 			toggleLoadingIcon(true)
-			displayElement = displayVideo
-			displayElement.src = options.vidSrc
+			makeVidSrc(options.vidSrc)
 			checkVid()
 		} else {
 			// local image / background image already loaded on page
@@ -729,6 +728,21 @@ var global = arguments[3];
 				scaleHeight +
 				', 0);'
 		)
+	}
+
+	function makeVidSrc(source) {
+		if (Array.isArray(source)) {
+			displayElement = displayVideo.cloneNode()
+			source.forEach(function(src) {
+				var source = doc[createEl]('SOURCE')
+				source.src = src
+				source.type = 'video/' + src.match(/.(\w+)$/)[1]
+				displayElement[appendEl](source)
+			})
+		} else {
+			displayElement = displayVideo
+			displayElement.src = source
+		}
 	}
 
 	function makeGallery(gallery) {
@@ -1077,13 +1091,17 @@ var openVideo = exports.openVideo = function openVideo(el, videoID) {
         el: el,
         noLoader: true
     };
-    var type = getVideoType(videoID);
-    if (type === 'vimeo') {
-        args['vimeoSrc'] = videoID;
-    } else if (type === 'youtube') {
-        args['ytSrc'] = videoID;
-    } else {
+    if (Array.isArray(videoID)) {
         args['vidSrc'] = videoID;
+    } else {
+        var type = getVideoType(videoID);
+        if (type === 'vimeo') {
+            args['vimeoSrc'] = videoID;
+        } else if (type === 'youtube') {
+            args['ytSrc'] = videoID;
+        } else {
+            args['vidSrc'] = videoID;
+        }
     }
     (0, _bigpicture2.default)(args);
 };

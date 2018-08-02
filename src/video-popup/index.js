@@ -44,13 +44,17 @@ export const openVideo = ( el, videoID ) => {
         el,
         noLoader: true,
     }
-    const type = getVideoType( videoID )
-    if ( type === 'vimeo' ) {
-        args['vimeoSrc'] = videoID
-    } else if ( type === 'youtube' ) {
-        args['ytSrc'] = videoID
-    } else {
+    if ( Array.isArray( videoID ) ) {
         args['vidSrc'] = videoID
+    } else {
+        const type = getVideoType( videoID )
+        if ( type === 'vimeo' ) {
+            args['vimeoSrc'] = videoID
+        } else if ( type === 'youtube' ) {
+            args['ytSrc'] = videoID
+        } else {
+            args['vidSrc'] = videoID
+        }
     }
     BigPicture( args )
 }
