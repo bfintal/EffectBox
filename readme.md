@@ -178,7 +178,9 @@ This requires some essential styles.
 
 | Option | Type | Default | Description |
 | - | - | - | - |
-| video | string | | The YouTube video ID, Vimeo video ID or MP4 video URL |
+| video | mixed | | The YouTube video ID, Vimeo video ID or MP4 video URL. You can provide an array of URLs for multiple sources, e.g. provide a WEBM and a MP4 URL. |
+
+Note that you can only pass an array to the `video` option in JS.
 
 ### Example
 
