@@ -1,6 +1,6 @@
 {
   "name": "effectbox",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A collection of ready-to-use & lean frontend effects & tools",
   "main": "src/index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "parcel-plugin-bundle-visualiser": "^1.1.2"
   },
   "dependencies": {
-    "bigpicture": "^1.3.2",
+    "bigpicture": "github:bfintal/bigpicture#multi-vidsrc",
     "domready": "^1.0.8"
   }
 }
